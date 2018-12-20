@@ -3,15 +3,13 @@ package ru.budget.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import ru.budget.domain.Category;
 import ru.budget.domain.Transaction;
 import ru.budget.repository.CategoryRepository;
 import ru.budget.repository.TransactionRepository;
 
+import javax.transaction.Transactional;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,6 +61,7 @@ public class CategoryController {
         transactionRepository.deleteAllByCategory_Id(id);
         categoryRepository.deleteById(id);
         return "redirect:" + CATEGORY_PATH;
+
     }
 
     @GetMapping("/show/{id}")

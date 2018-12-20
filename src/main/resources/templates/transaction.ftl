@@ -107,6 +107,7 @@
         <div id="nav">
             <a href="/category"><span>Категории</span></a>
             <a href="/transaction"><span>Транзакции</span></a>
+            <a href="/period"><span>Период</span></a>
         </div>
 
         <!-- Content

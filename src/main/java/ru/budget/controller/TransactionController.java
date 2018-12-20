@@ -51,9 +51,11 @@ public class TransactionController {
             ) throws ParseException {
 
         if (!category.equals("default")) {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date dateD = formatter.parse(date);
             Transaction transaction = new Transaction(
                     name,
-                    new SimpleDateFormat("yyyy-mm-dd").parse(date),
+                    dateD,
                     value,
                     categoryRepository.findByName(category)
             );

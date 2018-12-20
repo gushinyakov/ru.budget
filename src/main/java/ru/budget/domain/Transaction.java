@@ -1,5 +1,6 @@
 package ru.budget.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +16,11 @@ public class Transaction {
     private Long id;
 
     private String name;
+
+    @Basic
+    @Temporal(TemporalType.DATE)
     private Date date;
+
     private Integer value;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)

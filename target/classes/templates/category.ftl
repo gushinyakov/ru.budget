@@ -105,6 +105,7 @@
     <div id="nav">
         <a href="/category"><span>Категории</span></a>
         <a href="/transaction"><span>Транзакции</span></a>
+        <a href="/period"><span>Период</span></a>
     </div>
 
     <!-- Content
@@ -132,7 +133,9 @@
 
                 <div id="list-categories">
 
-                    <#list listCategory as category>
+                    <#if listCategory?has_content>
+
+                        <#list listCategory as category>
 
                         <div class="category-item">
                             <p>Категория: ${category.name}</p>
@@ -140,12 +143,18 @@
                             <a href="/delete/${category.id}">Удалить</a>
                         </div>
 
-                    </#list>
+                        </#list>
+
+                    </#if>
+
 
                 </div>
 
                 <div id="category-info">
-                    <h3>Категория ${categoryHeader} </h3>
+
+                    <#if categoryHeader?has_content>
+                        <h3>Категория ${categoryHeader} </h3>
+                    </#if>
 
                     <#if categoryInfo?has_content>
                         <#list categoryInfo as category>
